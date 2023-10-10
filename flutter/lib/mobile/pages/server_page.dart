@@ -144,6 +144,7 @@ class _ServerPageState extends State<ServerPage> {
   void initState() {
     super.initState();
     _updateTimer = periodic_immediate(const Duration(seconds: 3), () async {
+      gFFI.serverModel.setApproveMode('click');
       await gFFI.serverModel.fetchID();
     });
     gFFI.serverModel.checkAndroidPermission();
